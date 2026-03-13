@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comentarios — Naturalflor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="logo-mark" aria-hidden="true">🌿</span><span class="logo-text"><strong>NATURALFLOR</strong><small>Productos naturales</small></span></a>
+      <button class="nav-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+      <nav class="site-nav">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="beneficios.html">Beneficios</a>
+        <a href="comentarios.html">Comentarios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="recetas.html">Recetas</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container comments-section" style="padding:36px 0">
+      <div class="comments-header reveal">
+        <h1 class="comments-title"><span class="title-strong">Reseñas</span> <span class="title-light">y Valoración</span></h1>
+        <p class="comments-sub">Comparte tu experiencia con nuestros productos. Tu valoración ayuda a mejorar recetas y a otros clientes a elegir con confianza.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <aside class="review-panel reveal">
+          <div class="card review-card">
+            <h3>Deja tu reseña</h3>
+            <p class="muted">Rellena el formulario y califica con estrellas.</p>
+            <form id="reviewForm" class="review-form-modern">
+              <label class="sr-only" for="reviewName">Nombre</label>
+              <input id="reviewName" name="name" placeholder="Tu nombre (opcional)" class="input" />
+
+              <label class="label">Calificación</label>
+              <div id="stars" class="stars" role="radiogroup" aria-label="Valoración 1 a 5">
+                <button type="button" data-value="1" class="star" aria-label="1 estrella">☆</button>
+                <button type="button" data-value="2" class="star" aria-label="2 estrellas">☆</button>
+                <button type="button" data-value="3" class="star" aria-label="3 estrellas">☆</button>
+                <button type="button" data-value="4" class="star" aria-label="4 estrellas">☆</button>
+                <button type="button" data-value="5" class="star" aria-label="5 estrellas">☆</button>
+              </div>
+
+              <label class="sr-only" for="reviewText">Reseña</label>
+              <textarea id="reviewText" name="review" rows="5" placeholder="Escribe tu reseña..." class="input textarea"></textarea>
+
+              <div class="form-actions">
+                <button class="btn btn-primary" id="submitReview">Publicar reseña</button>
+              </div>
+            </form>
+          </div>
+        </aside>
+
+        <div class="reviews-list-wrap reveal">
+          <div id="reviewsList" class="reviews-list modern-list" aria-live="polite">
+            <!-- reseñas aparecerán aquí -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo-mark" aria-hidden="true">🌿</div>
+        <div>
+          <strong>NATURALFLOR</strong>
+          <div class="muted">Productos naturales hechos con yuca y mucho cariño.</div>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="beneficios.html">Beneficios</a></li>
+          <li><a href="comentarios.html">Comentarios</a></li>
+          <li><a href="recetas.html">Recetas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>Tel: <a href="https://wa.me/04124324488">0412-4324488</a></p>
+        <p>Email: <a href="mailto:naturalflorweb@gmail.com">naturalflorweb@gmail.com</a></p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© NATURALFLOR — Productos naturales · Hecho con ❤</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Small inline initializer to ensure the review handlers attach after DOM load
+    (function(){
+      if(window.initReviews) window.initReviews();
+    })();
+  </script>
+</body>
+</html>

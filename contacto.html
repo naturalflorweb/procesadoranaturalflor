@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto — Naturalflor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Naturalflor — Inicio">
+        <span class="logo-mark" aria-hidden="true">🌿</span>
+        <span class="logo-text"><strong>NATURALFLOR</strong><small>Recetas naturales</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+      <nav class="site-nav">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="beneficios.html">Beneficios</a>
+        <a href="comentarios.html">Comentarios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="recetas.html">Recetas</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-hero container">
+      <h1>Contacto</h1>
+      <p class="lead">Estamos aquí para ayudarte. Elige la forma de contacto que prefieras: llamadas, WhatsApp o correo electrónico.</p>
+    </section>
+
+    <section class="container">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <h4>Llamadas telefónicas</h4>
+          <p class="muted">Lunes a sábado · 8:00 — 16:00</p>
+          <a class="contact-link" href="tel:+584124324488"> <i class="fas fa-phone"></i> Llamar: 0412-4324488</a>
+          <p class="contact-note">Atendemos llamadas de lunes a sábado en horario laboral.</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon" style="background:linear-gradient(180deg,#25D366,#128C7E)"><i class="fab fa-whatsapp"></i></div>
+          <h4>WhatsApp</h4>
+          <p class="muted">Respuesta inmediata</p>
+          <a class="contact-link" href="https://wa.me/04124324488" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chatear en WhatsApp</a>
+          <p class="contact-note">Ideal para consultas rápidas y pedidos — respuesta inmediata dentro de nuestro horario.</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon" style="background:linear-gradient(180deg,#4A90E2,#3B7DD8)"><i class="fas fa-envelope"></i></div>
+          <h4>Correo electrónico</h4>
+          <p class="muted">Tiempo de respuesta: 24 horas</p>
+          <a class="contact-link" href="mailto:naturalflorweb@gmail.com"><i class="fas fa-envelope"></i> Enviar correo</a>
+          <p class="contact-note">Para consultas detalladas o presupuestos, responderemos en un plazo máximo de 24 horas.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;text-align:center;color:var(--muted)">
+        <p>Tel: <a href="tel:+584124324488">0412-4324488</a> · WhatsApp: <a href="https://wa.me/04124324488">0412-4324488</a> · Email: <a href="mailto:naturalflorweb@gmail.com">naturalflorweb@gmail.com</a></p>
+      </div>
+      <div style="margin-top:8px;text-align:center">
+        <span class="location-tag"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Valencia, Estado Carabobo</span>
+      </div>
+    </section>
+
+    <section class="container contact-section" style="padding-top:18px;">
+      <div class="contact-form-grid">
+        <form id="contactForm" class="contact-form" aria-label="Formulario de contacto">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" placeholder="Tu nombre" required>
+
+          <label for="phone">Teléfono (opcional)</label>
+          <input id="phone" name="phone" type="tel" placeholder="0412-1234567">
+
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" placeholder="tu@correo.com" required>
+
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" placeholder="Cuéntanos en qué podemos ayudarte" required></textarea>
+
+          <button type="submit" class="btn btn-primary btn-lg">Enviar consulta</button>
+          <p class="muted" style="font-size:13px;margin-top:8px">Respuesta estimada: dentro de 24 horas hábiles. No compartimos tus datos públicamente.</p>
+        </form>
+
+        <div class="contact-info">
+          <h4>Ubicación</h4>
+          <p class="muted">Oficina central — Consulta zonas de reparto y cobertura por WhatsApp.</p>
+          <div class="map-embed" aria-hidden="true">
+            <iframe width="100%" height="260" frameborder="0" scrolling="no" src="https://www.openstreetmap.org/export/embed.html?bbox=-66.9036%2C10.4806%2C-66.8406%2C10.5236&amp;layer=mapnik" style="border:0"></iframe>
+          </div>
+          <p style="margin-top:8px">Dirección: Consulta nuestras zonas de cobertura. <br>Horario de atención: Lunes a sábado 8:00 — 16:00</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section container">
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <div class="faq-grid">
+        <div class="faq-card">
+          <button class="faq-question" aria-expanded="false">📦 Sobre tus pedidos — ¿Cuál es el monto mínimo de compra?</button>
+          <div class="faq-answer" hidden>
+            <p>Queremos ser el aliado perfecto para tu negocio o emprendimiento. Si deseas conocer nuestros montos mínimos o recibir una cotización personalizada, por favor, contáctanos por cualquiera de nuestros medios oficiales. ¡Estamos listos para atenderte!</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" aria-expanded="false">¿Cómo puedo realizar mi pedido?</button>
+          <div class="faq-answer" hidden>
+            <p>Puedes realizar tus consultas y pedidos directamente a través de nuestros canales de atención al cliente (WhatsApp, Instagram o correo electrónico). Nuestro equipo te guiará durante todo el proceso.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" aria-expanded="false">❄️ Conservación y Calidad — ¿Los productos requieren refrigeración?</button>
+          <div class="faq-answer" hidden>
+            <p>¡Sí! Al ser productos 100% naturales, libres de conservantes y químicos, requieren mantenerse en refrigeración a una temperatura de 0°C o menor. Esto garantiza que recibas la frescura y calidad que nos caracteriza.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" aria-expanded="false">¿Cuánto tiempo se conservan los productos?</button>
+          <div class="faq-answer" hidden>
+            <p>Al no contener conservantes artificiales, recomendamos consumir nuestros productos dentro de los plazos indicados en el empaque para disfrutar de todas sus propiedades naturales.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" aria-expanded="false">🚀 Para tu negocio — ¿Por qué elegirnos para mi emprendimiento?</button>
+          <div class="faq-answer" hidden>
+            <p>Somos la mejor opción para potenciar tu negocio. Combinamos la calidad de un producto artesanal con una logística pensada para tu éxito. Si buscas aliados que impulsen el crecimiento de tu marca, ¡estás en el lugar correcto! Pregunta por nuestras zonas de cobertura y disponibilidad.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" aria-expanded="false">💳 Pagos — ¿Qué métodos de pago aceptan?</button>
+          <div class="faq-answer" hidden>
+            <p>Aceptamos diversos métodos de pago para facilitar tu compra. Consulta con nuestro asesor al momento de realizar tu pedido cuáles son las opciones disponibles en tu ubicación.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" aria-expanded="false">¿Necesitas más ayuda?</button>
+          <div class="faq-answer" hidden>
+            <p>Si no encontraste la respuesta que buscabas, no dudes en escribirnos. ¡Estamos aquí para ayudarte a crecer!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo-mark" aria-hidden="true">🌿</div>
+        <div>
+          <strong>NATURALFLOR</strong>
+          <div class="muted">Recetas y consejos con yuca.</div>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="beneficios.html">Beneficios</a></li>
+          <li><a href="comentarios.html">Comentarios</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>Tel: <a href="https://wa.me/04124324488">0412-4324488</a></p>
+        <p>Email: <a href="mailto:naturalflorweb@gmail.com">naturalflorweb@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© NATURALFLOR — Recetas naturales · Hecho con ❤</p>
+    </div>
+  </footer>
+</footer>
+
+  <script>
+    // Toggle simple accordion for FAQ
+    (function(){
+      document.querySelectorAll('.faq-question').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          var card = btn.closest('.faq-card');
+          var ans = card.querySelector('.faq-answer');
+          if (!ans) return;
+          if (!expanded) {
+            ans.hidden = false;
+            // allow browser to compute scrollHeight
+            requestAnimationFrame(function(){ ans.style.maxHeight = ans.scrollHeight + 'px'; });
+            card.classList.add('open');
+          } else {
+            ans.style.maxHeight = '0px';
+            card.classList.remove('open');
+            ans.addEventListener('transitionend', function handler(){ ans.hidden = true; ans.removeEventListener('transitionend', handler); });
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    // Enviar formulario como mailto: (solución simple para sitio estático)
+    (function(){
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var name = document.getElementById('name').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var message = document.getElementById('message').value.trim();
+        if (!name || !email || !message) {
+          alert('Por favor completa los campos requeridos (nombre, correo y mensaje).');
+          return;
+        }
+        var to = 'naturalflorweb@gmail.com';
+        var subject = encodeURIComponent('Consulta web de ' + name);
+        var body = encodeURIComponent('Nombre: ' + name + '\nTeléfono: ' + phone + '\nCorreo: ' + email + '\n\nMensaje:\n' + message);
+        var mailto = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+        window.location.href = mailto;
+      });
+    })();
+  </script>
+  <script src="script.js"></script>
+
+</body>
+</html>

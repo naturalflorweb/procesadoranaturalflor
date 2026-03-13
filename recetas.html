@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recetas — Naturalflor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Estilos responsivos para el modal de recetas */
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:9999;padding:20px}
+    .modal .modal-card{background:white;border-radius:12px;max-width:900px;width:min(95vw,900px);max-height:90vh;overflow:auto;display:flex;flex-direction:row;gap:18px;padding:18px;box-sizing:border-box}
+    .modal .modal-media{flex:1 1 50%;min-width:200px;max-height:70vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .modal .modal-media img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
+    .modal .modal-body{flex:1 1 50%;overflow:auto;padding:12px}
+    .modal #modalClose{background:transparent;border:0;font-size:20px;cursor:pointer}
+    .open-recipe{display:inline-block;border:0;padding:0;background:transparent}
+    @media (max-width:800px){
+      .modal .modal-card{flex-direction:column;padding:12px;max-height:95vh}
+      .modal .modal-media{max-height:45vh;min-width:0}
+      .modal .modal-body{max-height:45vh}
+      .modal .modal-body{padding-top:8px}
+    }
+    /* Ajustes adicionales para pantallas pequeñas */
+    @media (max-width:480px){
+      .modal{padding:6px;align-items:flex-start}
+      .modal .modal-card{gap:6px;padding:6px;border-radius:10px;flex-direction:column;max-width:94vw;width:94vw;max-height:96vh}
+      /* Imagen algo más pequeña para dejar espacio al texto y permitir que la receta se vea completa */
+      .modal .modal-media{order:0;width:100%;max-height:52vh;min-height:34vh}
+      .modal .modal-media img{height:100%;width:100%;object-fit:cover;border-radius:6px}
+      .modal .modal-body{order:1;width:100%;max-height:calc(96vh - 52vh);padding:6px;overflow:auto}
+      .modal .modal-body h3{font-size:1.02rem;margin-top:0}
+      /* Texto más compacto para caber en el modal sin ocultarse */
+      .modal .modal-body p{font-size:0.86rem;line-height:1.18;margin:0 0 0.45rem}
+      .modal .modal-body p code{font-size:0.78rem}
+      .modal .modal-body .recipe-data p{margin-bottom:0.45rem}
+      #modalClose{font-size:18px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Naturalflor — Inicio">
+        <span class="logo-mark" aria-hidden="true">🌿</span>
+        <span class="logo-text"><strong>NATURALFLOR</strong><small>Recetas naturales</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+      <nav class="site-nav">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="beneficios.html">Beneficios</a>
+        <a href="comentarios.html">Comentarios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="recetas.html">Recetas</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="products container">
+      <h2 class="section-title reveal">Recetas destacadas</h2>
+      <div class="product-grid">
+
+        <article class="product reveal product-arepa">
+          <div class="product-card">
+            <div class="media" style="max-width:100%; aspect-ratio:16/9; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+              <button class="open-recipe" data-recipe-id="recipe-arepa" aria-label="Ver receta Arepa Reina Pepiada" style="display:block;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer">
+                 <img src="images/receta_reina_pepiada.jpg"
+                     srcset="https://i.pinimg.com/236x/65/9a/c7/659ac7e7f47ff615999d049d130b0b84.jpg 236w, https://i.pinimg.com/564x/65/9a/c7/659ac7e7f47ff615999d049d130b0b84.jpg 564w"
+                     sizes="(max-width:600px) 100vw, 50vw"
+                     alt="Arepa de Yuca - Reina Pepiada"
+                     class="recipe-img"
+                     style="width:100%;height:100%;object-fit:cover;display:block;border:0;"
+                     onerror="this.onerror=null;this.src='https://i.pinimg.com/564x/65/9a/c7/659ac7e7f47ff615999d049d130b0b84.jpg'">
+              </button>
+            </div>
+
+            <h4>Arepa de Yuca — Reina Pepiada</h4>
+            <div class="tags">
+              <span class="tag">Desayuno</span>
+              <span class="tag">Tradicional</span>
+              <span class="tag">Receta</span>
+            </div>
+            <p class="desc">Saca las arepas `Naturalflor` del congelador y colócalas directamente sobre la plancha caliente o en la Airfryer. Cocina hasta que estén doradas y tostadas al gusto (aprox. 6–10 min en plancha o 8–12 min en Airfryer a 180°C), girando a la mitad del tiempo.</p>
+            <p class="benefit"><strong>Relleno Reina Pepiada:</strong> Desmenuza 1 pechuga de pollo cocida y mezcla con 1 aguacate maduro triturado, 2–3 cucharadas de mayonesa, 1 cucharada de jugo de limón, cebolla finamente picada al gusto, cilantro picado, sal y pimienta. Ajusta mayonesa y limón hasta obtener la cremosidad deseada. Rellena las arepas calientes y sirve inmediatamente.</p>
+          </div>
+        </article>
+
+        <article class="product reveal">
+          <div class="product-card">
+            <div class="media" style="max-width:100%; aspect-ratio:16/9; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+              <button class="open-recipe" data-recipe-id="recipe-tacos" aria-label="Ver receta Tacos de Yuca" style="display:block;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer">
+                 <img src="images/taco_tortilla.jpg"
+                     alt="Tacos de Yuca con Pollo y Aguacate"
+                     class="recipe-img"
+                     style="width:100%;height:100%;object-fit:cover;display:block;border:0;"
+                     onerror="this.onerror=null;this.src='https://picsum.photos/800/600?food'">
+              </button>
+            </div>
+
+            <h4>Tacos de Yuca con Pollo y Aguacate</h4>
+            <div class="tags">
+              <span class="tag">Tacos</span>
+              <span class="tag">Casero</span>
+            </div>
+            <p class="desc">Tortillas de yuca rellenas de pollo desmechado, aguacate y cebolla morada. Rápido y sabroso.</p>
+          </div>
+        </article>
+
+        <article class="product reveal">
+          <div class="product-card">
+            <div class="media" style="max-width:100%; aspect-ratio:16/9; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+              <button class="open-recipe" data-recipe-id="recipe-quesadillas" aria-label="Ver receta Quesadillas de Yuca" style="display:block;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer">
+                 <img src="images/quesadilla_receta.jpg"
+                     alt="Quesadillas de Yuca con Queso y Champiñones"
+                     class="recipe-img"
+                     style="width:100%;height:100%;object-fit:cover;display:block;border:0;"
+                     onerror="this.onerror=null;this.src='https://picsum.photos/800/600?food'">
+              </button>
+            </div>
+
+            <h4>Quesadillas de Yuca con Queso y Champiñones</h4>
+            <div class="tags">
+              <span class="tag">Quesadilla</span>
+              <span class="tag">Cena</span>
+            </div>
+            <p class="desc">Tortilla de yuca con queso fundido, champiñones salteados y espinacas. Crujiente por fuera, melosa por dentro.</p>
+          </div>
+        </article>
+
+        <article class="product reveal">
+          <div class="product-card">
+            <div class="media" style="max-width:100%; aspect-ratio:16/9; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+              <button class="open-recipe" data-recipe-id="recipe-wrap" aria-label="Ver receta Wrap de Atún" style="display:block;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer">
+                 <img src="images/wrap_receta.jpg"
+                     alt="Wrap de Atún, Vegetales y Aderezo"
+                     class="recipe-img"
+                     style="width:100%;height:100%;object-fit:cover;display:block;border:0;"
+                     onerror="this.onerror=null;this.src='https://picsum.photos/800/600?food'">
+              </button>
+            </div>
+
+            <h4>Wrap de Atún, Vegetales y Aderezo</h4>
+            <div class="tags">
+              <span class="tag">Wrap</span>
+              <span class="tag">Ligero</span>
+            </div>
+            <p class="desc">Wrap fresco con atún, yogur, verduras crujientes y toque de limón. Ideal para llevar.</p>
+          </div>
+        </article>
+
+        <article class="product reveal">
+          <div class="product-card">
+            <div class="media" style="max-width:100%; aspect-ratio:16/9; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+              <button class="open-recipe" data-recipe-id="recipe-deditos" aria-label="Ver receta Deditos de Yuca" style="display:block;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer">
+                <img src="images/recetas_deditos.jpg"
+                     alt="Deditos de Yuca — Snack crujiente"
+                     class="recipe-img"
+                     style="width:100%;height:100%;object-fit:cover;display:block;border:0;"
+                     onerror="this.onerror=null;this.src='https://picsum.photos/800/600?food'">
+              </button>
+            </div>
+
+            <h4>Snack de Deditos — Crujientes</h4>
+            <div class="tags">
+              <span class="tag">Snack</span>
+              <span class="tag">Crocante</span>
+            </div>
+            <p class="desc">Aprende a preparar nuestros deditos de yuca fritos o en Airfryer para lograr un snack crujiente y saludable.</p>
+            
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Datos de receta ocultos -->
+  <div id="recipe-arepa" class="recipe-data" style="display:none">
+    <h3>Arepa de Yuca — Reina Pepiada</h3>
+    <p><strong>Preparación de la arepa:</strong> Saca las arepas <code>Naturalflor</code> del congelador y colócalas directamente sobre la plancha caliente o en la Airfryer. Cocina hasta que estén doradas y tostadas al gusto (aprox. 6–10 min en plancha o 8–12 min en Airfryer a 180°C), girando a la mitad del tiempo.</p>
+    <p><strong>Relleno Reina Pepiada:</strong> Desmenuza 1 pechuga de pollo cocida y mezcla con 1 aguacate maduro triturado, 2–3 cucharadas de mayonesa, 1 cucharada de jugo de limón, 2 cucharadas de cebolla finamente picada, cilantro picado, sal y pimienta. Ajusta mayonesa y limón hasta obtener la cremosidad deseada. Rellena las arepas calientes y sirve inmediatamente.</p>
+    <p><strong>Consejos:</strong> Puedes añadir un toque de ajo en polvo, jalapeño picado o reemplazar mayonesa por yogur griego para versión más ligera.</p>
+  </div>
+
+  <div id="recipe-deditos" class="recipe-data" style="display:none">
+    <h3>Deditos de Yuca — Crujientes</h3>
+    <p><strong>Ingredientes:</strong> Yuca cocida y prensada, sal, aceite para freír u opción Airfryer. Para empanizar: harina de yuca o pan rallado.</p>
+    <p><strong>Preparación:</strong> Forma bastones con la yuca cocida, pasa por harina o pan rallado y hornea o fríe hasta dorar (Airfryer 180°C 12–15 min). Sirve con salsa de tu preferencia.</p>
+  </div>
+
+  <div id="recipe-tacos" class="recipe-data" style="display:none">
+    <h3>Tacos de Yuca con Pollo y Aguacate (Estilo Casero)</h3>
+    <p><strong>Ingredientes:</strong> Tortillas de yuca; pechuga de pollo desmechada (sazonada con comino, ajo y cilantro); aguacate; cebolla morada encurtida; salsa picante o limón.</p>
+    <p><strong>Preparación:</strong> Calienta las tortillas de yuca 30–45 s por lado hasta que estén flexibles. Rellena con pollo, aguacate y cebolla. Añade limón y sal al gusto.</p>
+  </div>
+
+  <div id="recipe-quesadillas" class="recipe-data" style="display:none">
+    <h3>Quesadillas de Yuca con Queso y Champiñones</h3>
+    <p><strong>Ingredientes:</strong> Tortillas de yuca; queso que derrita bien (mozzarella, gouda); champiñones salteados con ajo; espinacas frescas (opcional).</p>
+    <p><strong>Preparación:</strong> Pon una tortilla en sartén, añade queso y champiñones, dobla o cubre con otra tortilla y cocina a fuego medio hasta que el queso se funda y la superficie esté dorada. Corta en triángulos y sirve.</p>
+  </div>
+
+  <div id="recipe-wrap" class="recipe-data" style="display:none">
+    <h3>Wrap de Atún, Vegetales y Aderezo de Yogur</h3>
+    <p><strong>Ingredientes:</strong> 1–2 tortillas de yuca; 1 lata de atún escurrida; 1 cucharada de yogur griego (o mayonesa); zanahoria rallada; pepino en bastones; lechuga; cilantro o cebollín; sal, pimienta y limón.</p>
+    <p><strong>Preparación:</strong> Mezcla el atún con yogur, limón y condimentos. Calienta la tortilla 20–30 s por lado para que sea flexible. Coloca lechuga, la mezcla de atún y los vegetales; enrolla y corta a la mitad para servir.</p>
+    <p><strong>Tip:</strong> Para llevar, pon primero una hoja de lechuga sobre la tortilla antes del relleno para evitar humedad.</p>
+  </div>
+
+  <!-- Modal ligero para mostrar imagen y receta -->
+  <div id="recipeModal" class="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:9999;padding:20px">
+    <div class="modal-card" style="background:white;border-radius:12px;max-width:900px;width:100%;max-height:90vh;overflow:auto;gap:18px;padding:18px">
+      <div class="modal-media" style="flex:1 1 50%;min-width:260px;max-height:70vh;overflow:hidden;display:flex;align-items:center;justify-content:center">
+        <img id="modalImage" src="" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:8px">
+      </div>
+      <div class="modal-body" style="flex:1 1 50%;overflow:auto">
+        <button id="modalClose" aria-label="Cerrar" style="float:right;background:transparent;border:0;font-size:20px;cursor:pointer">✕</button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo-mark" aria-hidden="true">🌿</div>
+        <div>
+          <strong>NATURALFLOR</strong>
+          <div class="muted">Recetas y consejos con yuca.</div>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="beneficios.html">Beneficios</a></li>
+          <li><a href="comentarios.html">Comentarios</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>Tel: <a href="https://wa.me/04124324488">0412-4324488</a></p>
+        <p>Email: <a href="mailto:naturalflorweb@gmail.com">naturalflorweb@gmail.com</a></p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© NATURALFLOR — Recetas naturales · Hecho con ❤</p>
+    </div>
+  </footer>
+
+  <script>
+    // Script que convierte containers con data-video en <video> o <iframe> según el enlace.
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.media').forEach(function (el) {
+        // Si la media ya contiene una imagen, no la tocaremos (ya está configurada).
+        if (el.querySelector('img')) return;
+        var url = el.getAttribute('data-video') || '';
+        url = url.trim();
+        if (!url || url === 'VIDEO_URL_HERE') {
+          // marcador: muestra mensaje breve indicando reemplazo
+          el.innerHTML = '<div style="color:#fff; padding:12px; text-align:center;">Reemplaza el atributo <strong>data-video</strong> con el enlace del video (mp4 o YouTube).</div>';
+          return;
+        }
+
+        // Si es enlace de YouTube, insertar iframe embebido
+        if (/youtube\.com|youtu\.be/.test(url)) {
+          var id = null;
+          var m = url.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/);
+          if (m && m[1]) id = m[1];
+          if (!id) {
+            // intento alternativo para youtu.be
+            m = url.match(/youtu\.be\/([0-9A-Za-z_-]{11})/);
+            if (m && m[1]) id = m[1];
+          }
+          if (id) {
+            el.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + id + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:0; width:100%; height:100%;"></iframe>';
+            return;
+          }
+        }
+
+        // Enlace directo a video (mp4, webm, etc.)
+        var video = document.createElement('video');
+        video.setAttribute('controls', '');
+        video.setAttribute('playsinline', '');
+        video.style.width = '100%';
+        video.style.height = '100%';
+        video.src = url;
+        el.innerHTML = '';
+        el.appendChild(video);
+      });
+
+      // Modal recipe handlers
+      function openRecipe(id, imgSrc, imgAlt) {
+        var modal = document.getElementById('recipeModal');
+        var modalImg = document.getElementById('modalImage');
+        var modalContent = document.getElementById('modalContent');
+        var data = document.getElementById(id);
+        if (!data) return;
+        modalImg.src = imgSrc || '';
+        modalImg.alt = imgAlt || '';
+        modalContent.innerHTML = data.innerHTML;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeRecipe() {
+        var modal = document.getElementById('recipeModal');
+        modal.style.display = 'none';
+        document.getElementById('modalImage').src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.open-recipe').forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          var id = btn.getAttribute('data-recipe-id');
+          var img = btn.querySelector('img');
+          var src = img ? img.src : '';
+          var alt = img ? img.alt : '';
+          openRecipe(id, src, alt);
+        });
+      });
+
+      document.getElementById('modalClose').addEventListener('click', closeRecipe);
+      document.getElementById('recipeModal').addEventListener('click', function(e){ if(e.target===this) closeRecipe(); });
+
+      // Marca tarjetas como compactas en escritorio si la receta asociada es corta
+      if (window.matchMedia && window.matchMedia('(min-width:900px)').matches) {
+        document.querySelectorAll('.open-recipe').forEach(function(btn){
+          var id = btn.getAttribute('data-recipe-id');
+          if (!id) return;
+          var data = document.getElementById(id);
+          if (!data) return;
+          var text = (data.innerText || data.textContent || '').trim();
+          // Umbral: si la receta tiene menos de 220 caracteres, la tarjeta será compacta
+          if (text.length > 0 && text.length < 220) {
+            var card = btn.closest('.product-card');
+            if (card) card.classList.add('compact-card');
+          }
+        });
+      }
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
